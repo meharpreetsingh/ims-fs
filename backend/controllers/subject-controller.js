@@ -9,7 +9,6 @@ const subjectCreate = async (req, res) => {
       subCode: subject.subCode,
       sessions: subject.sessions,
     }));
-    console.log(subjects.length);
     if (subjects.length == 0) return res.send({ message: "Provide subject data to add" });
     else if (subjects.length == 1) {
       // For single subject to add
@@ -130,7 +129,6 @@ const deleteSubject = async (req, res) => {
 const deleteSubjects = async (req, res) => {
   try {
     const deletedSubjects = await Subject.deleteMany({ school: req.params.id });
-
     // Set the teachSubject field to null in teachers
     await Teacher.updateMany(
       { teachSubject: { $in: deletedSubjects.map((subject) => subject._id) } },
@@ -148,19 +146,21 @@ const deleteSubjects = async (req, res) => {
 
 const deleteSubjectsByClass = async (req, res) => {
   try {
-    const deletedSubjects = await Subject.deleteMany({ sclassName: req.params.id });
-
+    let subjects = await Subject.find({ sclassName: req.params.id });
+    if (!subjects || subjects.length === 0) return res.send({ message: "No subjects found" });
+    await Subject.deleteMany({ sclassName: req.params.id });
     // Set the teachSubject field to null in teachers
-    await Teacher.updateMany(
-      { teachSubject: { $in: deletedSubjects.map((subject) => subject._id) } },
-      { $unset: { teachSubject: "" }, $unset: { teachSubject: null } }
-    );
-
+    // [🦊 CHECK]
+    // await Teacher.updateMany(
+    //   { teachSubject: { $in: subjects.map((subject) => subject._id) } },
+    //   { $unset: { teachSubject: "" }, $unset: { teachSubject: null } }
+    // );
     // Set examResult and attendance to null in all students
-    await Student.updateMany({}, { $set: { examResult: null, attendance: null } });
-
-    res.send(deletedSubjects);
+    // [🦊 CHECK]
+    // await Student.updateMany({}, { $set: { examResult: null, attendance: null } });
+    res.send(subjects);
   } catch (error) {
+    console.log(error);
     res.status(500).json(error);
   }
 };
