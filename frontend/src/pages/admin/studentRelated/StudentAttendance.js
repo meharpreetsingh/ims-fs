@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { getUserDetails } from "../../../redux/userRelated/userHandle";
 import { getSubjectList } from "../../../redux/sclassRelated/sclassHandle";
@@ -20,6 +21,7 @@ import { PurpleButton } from "../../../components/buttonStyles";
 import Popup from "../../../components/Popup";
 
 const StudentAttendance = ({ situation }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { currentUser, userDetails, loading } = useSelector((state) => state.user);
   const { subjectsList } = useSelector((state) => state.sclass);
@@ -67,6 +69,7 @@ const StudentAttendance = ({ situation }) => {
     event.preventDefault();
     setLoader(true);
     dispatch(updateStudentFields(studentID, fields, "StudentAttendance"));
+    navigate("/Admin/students/student/" + studentID);
   };
 
   useEffect(() => {

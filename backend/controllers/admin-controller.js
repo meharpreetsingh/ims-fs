@@ -90,10 +90,8 @@ const updateAdmin = async (req, res) => {
     result.password = undefined;
     res.send(result);
   } catch (error) {
-    res.status(500).json(err);
+    res.status(500).json(error.message);
   }
 };
 
 module.exports = { adminRegister, adminLogIn, getAdminDetail, deleteAdmin, updateAdmin };
-
-// module.exports = { adminRegister, adminLogIn, getAdminDetail };

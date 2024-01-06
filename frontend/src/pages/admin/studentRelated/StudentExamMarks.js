@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { getUserDetails } from "../../../redux/userRelated/userHandle";
 import { getSubjectList } from "../../../redux/sclassRelated/sclassHandle";
@@ -20,6 +21,7 @@ import {
 } from "@mui/material";
 
 const StudentExamMarks = ({ situation }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { currentUser, userDetails, loading } = useSelector((state) => state.user);
   const { subjectsList } = useSelector((state) => state.sclass);
@@ -66,6 +68,7 @@ const StudentExamMarks = ({ situation }) => {
     event.preventDefault();
     setLoader(true);
     dispatch(updateStudentFields(studentID, fields, "UpdateExamResult"));
+    navigate("/Admin/students/student/" + studentID);
   };
 
   useEffect(() => {
