@@ -34,7 +34,7 @@ const adminLogIn = async (req, res) => {
   if (req.body.email && req.body.password) {
     let admin = await Admin.findOne({ email: req.body.email });
     if (admin) {
-      if (req.body.password === admin.password) {
+      if (await bcrypt.compare(req.body.password, admin.password)) {
         admin.password = undefined;
         res.send(admin);
       } else {
@@ -83,8 +83,7 @@ const updateAdmin = async (req, res) => {
   try {
     if (req.body.password) {
       // If password is being changed too
-      const salt = await bcrypt.genSalt(10);
-      req.body.password = await bcrypt.hash(req.body.password, salt);
+      req.body.password = await bcrypt.hash(req.body.password, 10);
     }
     let result = await Admin.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true });
     result.password = undefined;
