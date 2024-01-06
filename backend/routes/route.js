@@ -8,8 +8,6 @@ const {
   updateAdmin,
 } = require("../controllers/admin-controller.js");
 
-// const { adminRegister, adminLogIn, getAdminDetail } = require("../controllers/admin-controller.js");
-
 const {
   sclassCreate,
   sclassList,
@@ -18,7 +16,11 @@ const {
   getSclassDetail,
   getSclassStudents,
 } = require("../controllers/class-controller.js");
-const { complainCreate, complainList } = require("../controllers/complain-controller.js");
+const {
+  complainCreate,
+  complainList,
+  deleteComplain,
+} = require("../controllers/complain-controller.js");
 const {
   noticeCreate,
   noticeList,
@@ -129,6 +131,8 @@ router.put("/Notice/:id", updateNotice);
 router.post("/ComplainCreate", complainCreate);
 
 router.get("/ComplainList/:id", complainList);
+
+router.delete("/Complain/:id", deleteComplain);
 
 // Sclass
 
