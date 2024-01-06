@@ -9,24 +9,40 @@ const subjectCreate = async (req, res) => {
       subCode: subject.subCode,
       sessions: subject.sessions,
     }));
-
-    const existingSubjectBySubCode = await Subject.findOne({
-      "subjects.subCode": subjects[0].subCode,
-      school: req.body.adminID,
-    });
-
-    if (existingSubjectBySubCode) {
-      res.send({ message: "Sorry this subcode must be unique as it already exists" });
-    } else {
-      const newSubjects = subjects.map((subject) => ({
-        ...subject,
-        sclassName: req.body.sclassName,
+    console.log(subjects.length);
+    if (subjects.length == 0) return res.send({ message: "Provide subject data to add" });
+    else if (subjects.length == 1) {
+      // For single subject to add
+      // check if subject code exists already
+      const existingSubjectBySubCode = await Subject.findOne({
+        subCode: subjects[0].subCode,
         school: req.body.adminID,
-      }));
-
-      const result = await Subject.insertMany(newSubjects);
-      res.send(result);
+      });
+      if (existingSubjectBySubCode) {
+        res.send({ message: "Sorry this subcode must be unique as it already exists" });
+        return;
+      }
+    } else {
+      for (let i = 0; i < subjects.length; i++) {
+        const existingSubjectBySubCode = await Subject.findOne({
+          subCode: subjects[i].subCode,
+          school: req.body.adminID,
+        });
+        if (existingSubjectBySubCode) {
+          res.send({ message: `${existingSubjectBySubCode.subCode} is Ambiguous.` });
+          return;
+        }
+      }
     }
+
+    const newSubjects = subjects.map((subject) => ({
+      ...subject,
+      sclassName: req.body.sclassName,
+      school: req.body.adminID,
+    }));
+
+    const result = await Subject.insertMany(newSubjects);
+    res.send(result);
   } catch (err) {
     res.status(500).json(err);
   }
