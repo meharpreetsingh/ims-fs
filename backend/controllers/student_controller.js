@@ -162,6 +162,7 @@ const updateExamResult = async (req, res) => {
     }
 
     const result = await student.save();
+    result.password = undefined;
     return res.send(result);
   } catch (error) {
     res.status(500).json(error);
@@ -184,7 +185,7 @@ const studentAttendance = async (req, res) => {
       (a) =>
         a.date.toDateString() === new Date(date).toDateString() && a.subName.toString() === subName
     );
-
+    console.log(existingAttendance);
     if (existingAttendance) {
       existingAttendance.status = status;
     } else {
