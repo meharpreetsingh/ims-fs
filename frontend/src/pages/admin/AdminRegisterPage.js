@@ -183,7 +183,7 @@ const AdminRegisterPage = () => {
             </Box>
           </Box>
         </Grid>
-        <Grid
+        {/* <Grid
           item
           xs={false}
           sm={4}
@@ -196,7 +196,7 @@ const AdminRegisterPage = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
-        />
+        /> */}
       </Grid>
       <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
     </ThemeProvider>

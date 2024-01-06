@@ -18,7 +18,6 @@ import {
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import bgpic from "../assets/designlogin.jpg";
 import { LightPurpleButton } from "../components/buttonStyles";
 import styled from "styled-components";
 import { loginUser } from "../redux/userRelated/userHandle";
@@ -223,16 +222,8 @@ const LoginPage = ({ role }) => {
               <LightPurpleButton type='submit' fullWidth variant='contained' sx={{ mt: 3 }}>
                 {loader ? <CircularProgress size={24} color='inherit' /> : "Login"}
               </LightPurpleButton>
-              <Button
-                fullWidth
-                onClick={guestModeHandler}
-                variant='outlined'
-                sx={{ mt: 2, mb: 3, color: "#7f56da", borderColor: "#7f56da" }}
-              >
-                Login as Guest
-              </Button>
               {role === "Admin" && (
-                <Grid container>
+                <Grid container margin={1}>
                   <Grid>Don't have an account?</Grid>
                   <Grid item sx={{ ml: 2 }}>
                     <StyledLink to='/Adminregister'>Sign up</StyledLink>
@@ -242,20 +233,20 @@ const LoginPage = ({ role }) => {
             </Box>
           </Box>
         </Grid>
-        <Grid
+        {/* <Grid
           item
           xs={false}
-          sm={4}
-          md={7}
-          sx={{
-            backgroundImage: `url(${bgpic})`,
-            backgroundRepeat: "no-repeat",
-            backgroundColor: (t) =>
-              t.palette.mode === "light" ? t.palette.grey[50] : t.palette.grey[900],
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
+          // sm={4}
+          // md={7}
+          // sx={{
+          //   backgroundImage: `url(${bgpic})`,
+          //   backgroundRepeat: "no-repeat",
+          //   backgroundColor: (t) =>
+          //     t.palette.mode === "light" ? t.palette.grey[50] : t.palette.grey[900],
+          //   backgroundSize: "cover",
+          //   backgroundPosition: "center",
+          // }}
+        />*/}
       </Grid>
       <Backdrop
         sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}

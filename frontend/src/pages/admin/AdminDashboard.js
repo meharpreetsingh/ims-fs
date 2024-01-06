@@ -161,6 +161,7 @@ const styles = {
     flexGrow: 1,
     height: "100vh",
     overflow: "auto",
+    padding: "20px",
   },
   toolBarStyled: {
     display: "flex",
