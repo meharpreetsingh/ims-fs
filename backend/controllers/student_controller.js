@@ -180,12 +180,12 @@ const studentAttendance = async (req, res) => {
     }
 
     const subject = await Subject.findById(subName);
+    if (!subject) return res.send({ message: "Subject not found" });
 
     const existingAttendance = student.attendance.find(
       (a) =>
         a.date.toDateString() === new Date(date).toDateString() && a.subName.toString() === subName
     );
-    console.log(existingAttendance);
     if (existingAttendance) {
       existingAttendance.status = status;
     } else {
@@ -204,7 +204,7 @@ const studentAttendance = async (req, res) => {
     const result = await student.save();
     return res.send(result);
   } catch (error) {
-    res.status(500).json(error);
+    res.status(500).json({ message: error.message });
   }
 };
 
