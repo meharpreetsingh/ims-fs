@@ -34,24 +34,21 @@ const AdminHomePage = () => {
   return (
     <>
       <Container maxWidth='lg' sx={{ mt: 4, mb: 4 }}>
-        <Grid container spacing={3}>
-          <Grid item xs={12} md={3} lg={3}>
+        <Grid container spacing={4}>
+          <Grid item xs={12} md={4} lg={4}>
             <StyledPaper>
-              <img src={Students} alt='Students' />
               <Title>Total Students</Title>
               <Data start={0} end={numberOfStudents} duration={2.5} />
             </StyledPaper>
           </Grid>
-          <Grid item xs={12} md={3} lg={3}>
+          <Grid item xs={12} md={4} lg={4}>
             <StyledPaper>
-              <img src={Classes} alt='Classes' />
               <Title>Total Classes</Title>
               <Data start={0} end={numberOfClasses} duration={5} />
             </StyledPaper>
           </Grid>
-          <Grid item xs={12} md={3} lg={3}>
+          <Grid item xs={12} md={4} lg={4}>
             <StyledPaper>
-              <img src={Teachers} alt='Teachers' />
               <Title>Total Teachers</Title>
               <Data start={0} end={numberOfTeachers} duration={2.5} />
             </StyledPaper>
@@ -71,13 +68,13 @@ const StyledPaper = styled(Paper)`
   padding: 16px;
   display: flex;
   flex-direction: column;
-  height: 200px;
   justify-content: space-between;
   align-items: center;
   text-align: center;
 `;
 
 const Title = styled.p`
+  font-weight: bold;
   font-size: 1.25rem;
 `;
 

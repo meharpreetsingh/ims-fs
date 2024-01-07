@@ -32,6 +32,7 @@ export const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
+  backgroundColor: "#ff0000",
   zIndex: theme.zIndex.drawer + 1,
   transition: theme.transitions.create(["width", "margin"], {
     easing: theme.transitions.easing.sharp,
@@ -39,7 +40,7 @@ export const AppBar = styled(MuiAppBar, {
   }),
   ...(open && {
     marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
+    // width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
@@ -66,7 +67,8 @@ export const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 
         }),
         width: theme.spacing(7),
         [theme.breakpoints.up("sm")]: {
-          width: theme.spacing(9),
+          // width: theme.spacing(9),
+          width: theme.spacing(7),
         },
       }),
     },

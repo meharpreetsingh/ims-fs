@@ -57,7 +57,7 @@ const AccountMenu = () => {
       >
         <MenuItem>
           <Avatar />
-          <Link to={`/${currentRole}/profile`}>Profile</Link>
+          <Link to={`/${currentRole}/profile`}>{currentUser.name}</Link>
         </MenuItem>
         <Divider />
         <MenuItem onClick={handleClose}>

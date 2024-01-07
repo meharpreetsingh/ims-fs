@@ -32,15 +32,15 @@ const Logout = () => {
 export default Logout;
 
 const LogoutContainer = styled.div`
-  border: 1px solid #ccc;
+  ${"" /* border: 1px solid #ccc; */}
   border-radius: 10px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  background-color: #85769f66;
+  ${"" /* box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); */}
+  ${"" /* background-color: #85769f66; */}
   color: black;
 `;
 
@@ -51,6 +51,7 @@ const LogoutMessage = styled.p`
 `;
 
 const LogoutButton = styled.button`
+  border: none;
   padding: 10px 20px;
   margin-top: 10px;
   border-radius: 5px;

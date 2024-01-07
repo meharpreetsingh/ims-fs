@@ -54,9 +54,7 @@ const SeeComplains = () => {
       ) : (
         <>
           {response ? (
-            <Box sx={{ display: "flex", justifyContent: "flex-end", marginTop: "16px" }}>
-              No Complains Right Now
-            </Box>
+            <Box sx={{ display: "flex", marginTop: "16px" }}>No Complains Right Now</Box>
           ) : (
             <Paper sx={{ width: "100%", overflow: "hidden" }}>
               {Array.isArray(complainsList) && complainsList.length > 0 && (

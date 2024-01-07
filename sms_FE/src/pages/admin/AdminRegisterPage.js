@@ -85,7 +85,17 @@ const AdminRegisterPage = () => {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Grid container component='main' sx={{ height: "100vh" }}>
+      <Grid
+        container
+        component='main'
+        sx={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <CssBaseline />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
@@ -100,7 +110,12 @@ const AdminRegisterPage = () => {
             <Typography variant='h4' sx={{ mb: 2, color: "#2c2143" }}>
               Admin Register
             </Typography>
-            <Typography variant='h7'>
+            <Typography
+              variant='h7'
+              sx={{
+                textAlign: "center",
+              }}
+            >
               Create your own school by registering as an admin.
               <br />
               You will be able to add students and faculty and manage the system.

@@ -53,7 +53,7 @@ const AdminDashboard = () => {
               onClick={toggleDrawer}
               sx={{
                 marginRight: "36px",
-                ...(open && { display: "none" }),
+                // ...(open && { display: "none" }),
               }}
             >
               <MenuIcon />

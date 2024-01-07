@@ -45,7 +45,7 @@ const ChooseUser = ({ visitor }) => {
   return (
     <StyledContainer>
       <Container>
-        <StyledTypography>Who is here?</StyledTypography>
+        <StyledTypography>Login as: -</StyledTypography>
         <Grid container spacing={2} justifyContent='center' alignItems='center'>
           <Grid item xs={12} sm={6} md={4}>
             <div onClick={() => navigateHandler("Admin")}>

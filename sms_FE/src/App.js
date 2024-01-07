@@ -7,6 +7,7 @@ import TeacherDashboard from "./pages/teacher/TeacherDashboard";
 import LoginPage from "./pages/LoginPage";
 import AdminRegisterPage from "./pages/admin/AdminRegisterPage";
 import ChooseUser from "./pages/ChooseUser";
+import ChooseUserV1 from "./pages/ChooseUserV1";
 
 const App = () => {
   const { currentRole } = useSelector((state) => state.user);
@@ -15,7 +16,8 @@ const App = () => {
     <Router>
       {currentRole === null && (
         <Routes>
-          <Route path='/' element={<ChooseUser visitor='normal' />} />
+          <Route path='/' element={<ChooseUserV1 />} />
+          {/* <Route path='/' element={<ChooseUser visitor='normal' />} /> */}
           <Route path='/choose' element={<ChooseUser visitor='normal' />} />
 
           <Route path='/Adminlogin' element={<LoginPage role='Admin' />} />

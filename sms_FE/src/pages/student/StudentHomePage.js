@@ -110,6 +110,7 @@ const StyledPaper = styled(Paper)`
 `;
 
 const Title = styled.p`
+  font-weight: bold;
   font-size: 1.25rem;
 `;
 

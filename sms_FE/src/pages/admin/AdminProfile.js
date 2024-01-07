@@ -35,6 +35,7 @@ const AdminProfile = () => {
   const submitHandler = (event) => {
     event.preventDefault();
     dispatch(updateUser(fields, currentUser._id, address));
+    setShowTab(!showTab);
   };
 
   const deleteHandler = () => {
@@ -56,14 +57,19 @@ const AdminProfile = () => {
       <br />
       School: {currentUser.schoolName}
       <br />
-      <Button variant='contained' color='error' onClick={deleteHandler}>
+      <Button
+        variant='contained'
+        color='error'
+        onClick={deleteHandler}
+        sx={{ marginRight: "10px" }}
+      >
         Delete
       </Button>
-      {/* <Button variant='contained' sx={styles.showButton} onClick={() => setShowTab(!showTab)}>
+      <Button variant='contained' sx={styles.showButton} onClick={() => setShowTab(!showTab)}>
         {showTab ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
         {buttonText}
-      </Button> */}
-      {/* <Collapse in={showTab} timeout='auto' unmountOnExit>
+      </Button>
+      <Collapse in={showTab} timeout='auto' unmountOnExit>
         <div className='register'>
           <form className='registerForm' onSubmit={submitHandler}>
             <span className='registerTitle'>Edit Details</span>
@@ -115,7 +121,7 @@ const AdminProfile = () => {
             </button>
           </form>
         </div>
-      </Collapse> */}
+      </Collapse>
     </div>
   );
 };
