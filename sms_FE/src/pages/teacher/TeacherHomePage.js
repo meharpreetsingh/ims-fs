@@ -2,10 +2,6 @@ import { Container, Grid, Paper } from "@mui/material";
 import SeeNotice from "../../components/SeeNotice";
 import CountUp from "react-countup";
 import styled from "styled-components";
-import Students from "../../assets/img1.png";
-import Lessons from "../../assets/subjects.svg";
-import Tests from "../../assets/assignment.svg";
-import Time from "../../assets/time.svg";
 import { getClassStudents, getSubjectDetails } from "../../redux/sclassRelated/sclassHandle";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -70,7 +66,7 @@ const TeacherHomePage = () => {
 const StyledPaper = styled(Paper)`
   padding: 16px;
   display: flex;
-  height: 100px;
+  height: 150px;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
