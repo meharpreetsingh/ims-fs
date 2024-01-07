@@ -10,7 +10,7 @@ import { AppBar, Drawer } from "../../components/styles";
 import StudentAttendance from "../admin/studentRelated/StudentAttendance";
 
 import TeacherClassDetails from "./TeacherClassDetails";
-import TeacherComplain from "./TeacherComplain";
+// import TeacherComplain from "./TeacherComplain";
 import TeacherHomePage from "./TeacherHomePage";
 import TeacherProfile from "./TeacherProfile";
 import TeacherViewStudent from "./TeacherViewStudent";
