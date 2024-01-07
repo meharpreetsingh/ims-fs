@@ -100,7 +100,7 @@ const updateTeacherSubject = async (req, res) => {
     );
 
     await Subject.findByIdAndUpdate(teachSubject, { teacher: updatedTeacher._id });
-
+    updatedTeacher.password = undefined;
     res.send(updatedTeacher);
   } catch (error) {
     res.status(500).json(error);
@@ -197,6 +197,7 @@ const teacherAttendance = async (req, res) => {
     }
 
     const result = await teacher.save();
+    result.password = undefined;
     return res.send(result);
   } catch (error) {
     res.status(500).json(error);
