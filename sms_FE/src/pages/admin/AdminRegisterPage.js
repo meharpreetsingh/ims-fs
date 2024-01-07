@@ -116,9 +116,9 @@ const AdminRegisterPage = () => {
                 textAlign: "center",
               }}
             >
-              Create your own school by registering as an admin.
+              In order to start your own school, register as an admin.
               <br />
-              You will be able to add students and faculty and manage the system.
+              You will be able to administer the system and add instructors and students.
             </Typography>
             <Box component='form' noValidate onSubmit={handleSubmit} sx={{ mt: 2 }}>
               <TextField

@@ -47,13 +47,13 @@ const StudentHomePage = () => {
         <Grid container spacing={3}>
           <Grid item xs={12} md={3} lg={3}>
             <StyledPaper>
-              <img src={Subject} alt='Subjects' />
               <Title>Total Subjects</Title>
               <Data start={0} end={numberOfSubjects} duration={2.5} />
             </StyledPaper>
           </Grid>
 
-          <Grid item xs={12} md={4} lg={3}>
+          <Grid item xs={12} md={4} lg={4}>
+            <Title>Attendance</Title>
             <ChartContainer>
               {response ? (
                 <Typography variant='h6'>No Attendance Found</Typography>
@@ -93,7 +93,7 @@ const ChartContainer = styled.div`
   padding: 2px;
   display: flex;
   flex-direction: column;
-  height: 240px;
+  height: 150px;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -103,7 +103,7 @@ const StyledPaper = styled(Paper)`
   padding: 16px;
   display: flex;
   flex-direction: column;
-  height: 200px;
+  height: 150px;
   justify-content: space-between;
   align-items: center;
   text-align: center;
@@ -112,6 +112,7 @@ const StyledPaper = styled(Paper)`
 const Title = styled.p`
   font-weight: bold;
   font-size: 1.25rem;
+  text-align: center;
 `;
 
 const Data = styled(CountUp)`

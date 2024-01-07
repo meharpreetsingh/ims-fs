@@ -32,7 +32,6 @@ const StudentDashboard = () => {
               onClick={toggleDrawer}
               sx={{
                 marginRight: "36px",
-                ...(open && { display: "none" }),
               }}
             >
               <MenuIcon />
