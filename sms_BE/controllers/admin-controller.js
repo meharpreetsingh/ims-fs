@@ -9,16 +9,20 @@ const Complain = require("../models/complainSchema.js");
 
 const adminRegister = async (req, res) => {
   try {
+    const hashedPass = await bcrypt.hash(req.body.password, 10);
     const admin = new Admin({
       ...req.body,
     });
+    admin.password = hashedPass;
 
     const existingAdminByEmail = await Admin.findOne({ email: req.body.email });
-    const existingSchool = await Admin.findOne({ schoolName: req.body.schoolName });
 
     if (existingAdminByEmail) {
       res.send({ message: "Email already exists" });
-    } else if (existingSchool) {
+    }
+    const existingSchool = await Admin.findOne({ schoolName: req.body.schoolName });
+
+    if (existingSchool) {
       res.send({ message: "School name already exists" });
     } else {
       let result = await admin.save();
